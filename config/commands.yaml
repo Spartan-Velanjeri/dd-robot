@@ -1,0 +1,9 @@
+- linear_x: 0.2
+  angular_z: 1.0
+- linear_x: -0.2
+  angular_z: -1.0
+- linear_x: 0.0
+  angular_z: 0.5
+- linear_x: 0.3
+  angular_z: -0.3
+
