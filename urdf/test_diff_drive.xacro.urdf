@@ -3,18 +3,20 @@
   <!-- Base Link -->
   <link name="chassis">
     <collision>
-      <origin xyz="-0.151427 -0 0.5" rpy="0 0 0"/>
+      <origin xyz="-0.151427 0 0.5" rpy="0 0 0"/>
       <geometry>
         <box size="2.01142 1 0.568726"/>
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="-0.151427 -0 0.5" rpy="0 0 0"/>
+      <origin xyz="-0.151427 0 0.5" rpy="0 0 0"/>
       <geometry>
         <box size="2.01142 1 0.568726"/>
       </geometry>
-      <material name="orange"/>
+      <material name="orange">
+      <color rgba="1.0 0.647 0.0 1.0"/> <!-- RGB value for orange -->
+      </material>
     </visual>
 
     <inertial>
@@ -31,10 +33,11 @@
   </link>
 
   <joint name="left_wheel_joint" type="continuous">
-    <origin xyz="0.554283 0.625029 0.3" rpy="-1.5707 0 0"/>
+    <!-- <origin xyz="0.554283 0.625029 0.3" rpy="0 0 0"/> -->
+      <origin xyz="-0.95 0.625029 0.3" rpy="0 0 0"/>
     <parent link="chassis"/>
     <child link="left_wheel"/>
-    <axis xyz="0 0 1"/>
+    <axis xyz="0 1 0"/>
     <dynamics damping="0.2"/>
   </joint>
 
@@ -50,7 +53,9 @@
       <geometry>
         <sphere radius="0.3"/>
       </geometry>
-      <material name="black"/>
+      <material name="black">
+      <color rgba="0.0 0.0 0.0 1.0"/> <!-- RGB value for black -->  
+      </material>
     </visual>
 
     <inertial>
@@ -65,10 +70,11 @@
   </link>
 
   <joint name="right_wheel_joint" type="continuous">
-    <origin xyz="0.554283 -0.625029 0.3" rpy="-1.5707 0 0"/>
+    <!-- <origin xyz="0.554283 -0.625029 0.3" rpy="0 0 0"/> -->
+    <origin xyz="-0.95 -0.625029 0.3" rpy="0 0 0"/>
     <parent link="chassis"/>
     <child link="right_wheel"/>
-    <axis xyz="0 0 1"/>
+    <axis xyz="0 1 0"/>
     <dynamics damping="0.2"/>
   </joint>
 
@@ -84,7 +90,10 @@
       <geometry>
         <sphere radius="0.3"/>
       </geometry>
-      <material name="black"/>
+      <material name="black">
+        <color rgba="0.0 0.0 0.0 1.0"/> <!-- RGB value for black -->
+      </material>
+
     </visual>
 
     <inertial>
@@ -99,7 +108,7 @@
   </link>
 
   <joint name="caster_joint" type="fixed">
-    <origin xyz="-0.957138 -0 0.2" rpy="0 0 0"/>
+    <origin xyz="0.55 0 0.2" rpy="0 0 0"/>
     <parent link="chassis"/>
     <child link="caster"/>
   </joint>
@@ -116,7 +125,9 @@
       <geometry>
         <sphere radius="0.2"/>
       </geometry>
-      <material name="white"/>
+      <material name="white">
+        <color rgba="1.0 1.0 1.0 1.0"/> <!-- RGB value for white -->
+      </material>
     </visual>
 
     <inertial>
@@ -131,6 +142,8 @@
         izz="0.1"/>
     </inertial>
   </link>
+
+
 
   <ros2_control name="IgnitionSystem" type="system">
     <hardware>
