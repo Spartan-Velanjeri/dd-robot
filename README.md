@@ -27,7 +27,7 @@
 
 ## Branches
 - ***main*** : Just the dd_robot which does the alternating cyclic motion (with cmd_vel_publisher.py)
-- ***camera*** : Added monocular camera capability to dd_robot for vision applications
+- camera : Added monocular camera capability to dd_robot for vision applications
 
 ## Prerequisites
 
@@ -59,6 +59,7 @@ Before you begin, ensure you have met the following requirements:
 3. **Build the package**
 
     ```bash
+    cd ~/ros2_ws
     colcon build --packages-select dd_robot
     ```
 
