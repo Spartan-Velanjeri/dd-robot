@@ -63,9 +63,10 @@ def generate_launch_description():
 	bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
-        arguments=['/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock'],
-        output='screen'
+        arguments=['/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock','/camera@sensor_msgs/msg/Image@ignition.msgs.Image'],
+        output='screen',
     )
+
 	# Command Publisher
 	command_publisher_node = Node(
     	package='dd_robot',
@@ -97,7 +98,7 @@ def generate_launch_description():
         ),
         node_robot_state_publisher,
         gz_spawn_entity,
-        command_publisher_node,
+        command_publisher_node, # disabling cyclic command publisher
         # Launch Arguments
         DeclareLaunchArgument(
             'use_sim_time',

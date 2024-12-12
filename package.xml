@@ -17,5 +17,4 @@
   </export>
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>python3</exec_depend>
-  <exec_depend>cmd_vel_publisher</exec_depend>
 </package>
